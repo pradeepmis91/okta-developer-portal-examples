@@ -19,6 +19,13 @@ provider "okta" {
   base_url  = var.base_url
 }
 
+resource "okta_user_schema" "dob_extension" {
+  index  = "date_of_birth"
+  title  = "Date of Birth"
+  type   = "string"
+  master = "PROFILE_MASTER"
+}
+
 resource "okta_user_schema" "crn_extension" {
   index  = "customer_reference_number"
   title  = "Customer Reference Number"
