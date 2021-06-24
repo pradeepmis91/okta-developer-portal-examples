@@ -12,6 +12,12 @@ terraform {
   required_version = ">= 0.13"
 }
 
+# More https://www.terraform.io/docs/configuration/providers.html and https://www.terraform.io/docs/providers/okta/index.html
+provider "okta" {
+  org_name  = var.org_name
+  api_token = var.api_token
+  base_url  = var.base_url
+}
 
 resource "okta_user_schema" "crn_extension" {
   index  = "customer_reference_number"
